@@ -1,34 +1,30 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import math
 
 # Cria uma lista de pontos igualmente espaçados:
 # numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)
-X = np.linspace(-50, 100, 100)
+X = np.linspace(200, 300, 400)
 
 
-def f(x): return x**3-9*x+3
-
-
-def f2(x):
-    y = 4*math.cos(x)
-    g = - math.exp(2*x)
-    return ( y + g )
+def f2(x): return 4 * np.cos(x) - np.exp(2*x)
 
 
 def f3(x):
     g = 9.806
     k = 0.00341
-    y = math.log(math.cosh(x * (g*k)**0.5))-50
+    y = np.log10(np.cosh(x * np.sqrt(g*k)))-50
     return y
 
 
 def f4(x):
-    y = x**2 - 4*math.cos(x)
+    y = x**2 - 4*np.cos(x)
     return y
 
-F = np.vectorize(f2)
+
+# modificar a funcao aqui
+F = np.vectorize(f3)
 
 plt.plot(X, F(X))
+plt.ylim(-20, 30)
 plt.grid()
 plt.show()
