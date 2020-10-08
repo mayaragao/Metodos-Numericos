@@ -1,8 +1,7 @@
 import math
 
-
-a = 0
-b = 10
+a = -100
+b = 100
 tol = 0.0001
 
 
