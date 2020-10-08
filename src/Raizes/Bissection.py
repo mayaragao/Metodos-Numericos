@@ -1,8 +1,13 @@
 import math
 
-a = -100
-b = 100
+a = 200
+b = 300
 tol = 0.0001
+
+
+def f1(x):
+    y = x**2 - 4*math.cos(x)
+    return y
 
 
 def f2(x):
@@ -10,15 +15,10 @@ def f2(x):
     return y
 
 
-def f3(x):
+def f(x):
     g = 9.806
     k = 0.00341
     y = math.log(math.cosh(x * (g*k)**0.5))-50
-    return y
-
-
-def f(x):
-    y = x**2 - 4*math.cos(x)
     return y
 
 
@@ -36,8 +36,8 @@ def bissecao(a, b, tol):
 
     while err >= tol:
         x = (a+b)/2.0
-        print("ITER ", it, "|a = %.5f" % a, "|b = %.5f" % b, "|x = %.5f" % x, "|f(x) = %.4f" %
-              f(x), "| Err = %.4f" % err)
+        print("ITER ", it, "|a = %.5f" % a, "|b = %.5f" % b, "|x = %.5f" % x,
+              "|f(x) = %.4f" % f(x), "| Err = %.4f" % err)
         if f(x)*f(a) < 0:
             b = x
         elif f(x)*f(a) > 0:
@@ -47,10 +47,11 @@ def bissecao(a, b, tol):
         err = abs(x-aux)
         aux = x
         it += 1
-    print("ITER ", it, "|a = %.5f" % a, "|b = %.5f" % b, "|x = %.5f" % x, "|f(x) = %.4f" %
-          f(x), "| Err = %.4f" % err)
+    print("ITER ", it, "|a = %.5f" % a, "|b = %.5f" % b, "|x = %.5f" % x,
+          "|f(x) = %.4f" % f(x), "| Err = %.4f" % err)
     return x
 
 
+print("\nMÉTODO DA BISSEÇÃO\n")
 x = bissecao(a, b, tol)
 print("A raiz exata é x= %.5f" % x)

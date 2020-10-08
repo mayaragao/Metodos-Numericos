@@ -12,7 +12,7 @@ def f2(x): return 4 * np.cos(x) - np.exp(2*x)
 def f3(x):
     g = 9.806
     k = 0.00341
-    y = np.log10(np.cosh(x * np.sqrt(g*k)))-50
+    y = np.log(np.cosh(x * np.sqrt(g*k)))-50
     return y
 
 
