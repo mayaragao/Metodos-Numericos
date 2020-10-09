@@ -1,6 +1,6 @@
 import numpy as np
 
-tol = 0.0005
+tol = 0.0001
 x0 = 10
 it_max = 100
 
