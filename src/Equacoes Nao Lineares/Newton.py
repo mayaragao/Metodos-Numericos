@@ -57,7 +57,7 @@ def newton(V, tol, it_max):
         V = V + delta
         err = np.linalg.norm(delta)/np.linalg.norm(V)
 
-        X = arredondando(V, 3)
+        X = np.round(V, 3)
         print("ITER ", it, "|X = ", X, " | Err = %.5f" % err)
 
         it += 1
@@ -65,17 +65,9 @@ def newton(V, tol, it_max):
     return (V, it)
 
 
-def arredondando(A, x):
-    n = np.shape(A)[0]
-    X = np.copy(A)
-    for i in np.arange(n):
-        X[i] = round(A[i], x)
-    return X
-
-
 print("\nMÉTODO DE NEWTON MULTI-DIMENSIONAL\n")
 X, i = newton(V, tol, it_max)
-X = arredondando(X, 3)
+X = np.round(X, 3)
 if i == it_max:
     print("O método não convergiu")
 print("\nSolução X = ",  X)

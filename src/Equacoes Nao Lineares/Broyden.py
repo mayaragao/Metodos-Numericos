@@ -10,10 +10,10 @@ X = np.array([2, 3])
 
 def f1(V):
     x, y, z = V
-    S = np.array([[16*x**4+16*y**4+z**4-16,
-                   x**2+y**2+z**2-3,
-                   x**3-y+z-1
-                   ]])
+    S = np.array([16*x**4+16*y**4+z**4-16,
+                  x**2+y**2+z**2-3,
+                  x**3-y+z-1
+                  ])
     return S
 
 
@@ -45,8 +45,7 @@ def j(V):
 # para calculo da norma euclidiana de um vetor
 
 # B = np.eye(2)
-# B = j(X)
-B = np.matrix([[1, 2], [4, 24]])
+B = j(X)
 
 
 def broyden(X, B):
@@ -58,8 +57,6 @@ def broyden(X, B):
         F = f(X)
         F = np.reshape(F, (-1, 1))
 
-        # inv_J = linalg.inv(J)
-        # delta = - np.dot(inv_J, F)
         delta = linalg.solve(J, -F)
 
         X = np.reshape(X, (-1, 1)) + delta
@@ -70,7 +67,6 @@ def broyden(X, B):
         Y = Y - F
         err = np.linalg.norm(delta)/np.linalg.norm(X)
 
-        # x = arredondando(np.reshape(X, (1, -1)), 3)
         print("ITER ", it, "|X = ", np.reshape(np.round(X, 3), (1, -1)), " | Err = %.5f" % err,  "|\n delta:",
               np.reshape(np.round(delta, 3), (1, -1)), "\n B:\n", np.round(B, 3))
 
