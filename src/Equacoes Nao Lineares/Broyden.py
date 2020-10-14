@@ -44,9 +44,9 @@ def j(V):
 # matriz inversa do jacobiano e np.linalg.norm
 # para calculo da norma euclidiana de um vetor
 
-B = np.eye(2)
+# B = np.eye(2)
 # B = j(X)
-# B = np.matrix([[1,2],[4,24]])
+B = np.matrix([[1, 2], [4, 24]])
 
 
 def broyden(X, B):
@@ -58,20 +58,21 @@ def broyden(X, B):
         F = f(X)
         F = np.reshape(F, (-1, 1))
 
-        # inv_J = np.linalg.inv(J)
+        # inv_J = linalg.inv(J)
         # delta = - np.dot(inv_J, F)
         delta = linalg.solve(J, -F)
 
         X = np.reshape(X, (-1, 1)) + delta
+        X = X + delta
 
         Y = f(X)
-        Y = np.reshape(F, (-1, 1))
+        Y = np.reshape(Y, (-1, 1))
         Y = Y - F
         err = np.linalg.norm(delta)/np.linalg.norm(X)
 
-        #x = arredondando(np.reshape(X, (1, -1)), 3)
-        print("ITER ", it, "|X = ", np.reshape(X, (1, -1)), " | Err = %.5f" % err,  "|\n delta:",
-              np.reshape(delta, (1, -1)), "\n B:\n", B)
+        # x = arredondando(np.reshape(X, (1, -1)), 3)
+        print("ITER ", it, "|X = ", np.reshape(np.round(X, 3), (1, -1)), " | Err = %.5f" % err,  "|\n delta:",
+              np.reshape(np.round(delta, 3), (1, -1)), "\n B:\n", np.round(B, 3))
 
         aux = (Y - np.dot(B, delta))
         numerador = np.dot(aux, np.transpose(delta))
@@ -82,17 +83,9 @@ def broyden(X, B):
     return (X, it)
 
 
-def arredondando(A, x):
-    n = np.shape(A)[0]
-    X = np.copy(A)
-    for i in np.arange(n):
-        X[i] = round(A[i], x)
-    return X
-
-
 print("\nMÉTODO DE BROYDEN MULTI-DIMENSIONAL\n")
 X, i = broyden(X, B)
-X = arredondando(X, 4)
+
 if i == it_max:
     print("O método não convergiu")
-print("\nSolução X = ",  X)
+print("\nSolução X = ",  np.reshape(np.round(X, 3), (1, -1)))
