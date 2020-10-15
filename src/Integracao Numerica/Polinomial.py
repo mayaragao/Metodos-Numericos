@@ -4,8 +4,13 @@ a = 0
 b = 1
 
 
-def f(x):
+def f1(x):
     y = np.exp(-x**2)
+    return y
+
+
+def f(x):
+    y = np.exp(-(x**2)/2)/(np.sqrt(2*np.pi))
     return y
 
 
