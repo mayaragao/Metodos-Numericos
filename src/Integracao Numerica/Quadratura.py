@@ -101,6 +101,6 @@ a = 0
 b = 1
 
 
-soma = quadratura(a, b, N)
+soma = quadratura(0, 5, N)
 print("\n\n     Integral: ", round(soma, 6), "para ", N, " pontos \n")
-estimativa(a, b)
+estimativa(0, 5)
