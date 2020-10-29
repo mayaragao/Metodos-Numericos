@@ -2,10 +2,10 @@
 Métodos numéricos para cálculo de raízes de equações, Integral e Derivada de funções, e Equações diferenciais ordinárias de primeira e segunda ordem.
 
 ### Raizes de funções de Equações não lineares
- **Raízes pelos métodos:
-    [Bisseção](https://github.com/mayaragao/Metodos-Numericos/blob/main/src/Raizes/Bissection.py)
-    [Newton](https://github.com/mayaragao/Metodos-Numericos/blob/main/src/Raizes/Newton.py)
-    [Secante](https://github.com/mayaragao/Metodos-Numericos/blob/main/src/Raizes/Secante.py)
+ ** Raízes pelos métodos:
+    [Bisseção](https://github.com/mayaragao/Metodos-Numericos/blob/main/src/Raizes/Bissection.py),
+    [Newton](https://github.com/mayaragao/Metodos-Numericos/blob/main/src/Raizes/Newton.py),
+    [Secante](https://github.com/mayaragao/Metodos-Numericos/blob/main/src/Raizes/Secante.py),
     [Interpolação Polinomal](https://github.com/mayaragao/Metodos-Numericos/blob/main/src/Raizes/Interpolacao.py)
 
   **Equações não lineares:
