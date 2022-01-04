@@ -1,4 +1,4 @@
-# Metodos Numericos
+# Métodos Numéricos
 Métodos numéricos para cálculo de raízes de equações, Integral e Derivada de funções, e Equações diferenciais ordinárias de primeira e segunda ordem.
 
 ### Raizes de funções e de Equações não lineares
